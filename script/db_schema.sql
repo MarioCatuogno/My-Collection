@@ -2,35 +2,34 @@
 -- DOMAIN TABLES
 --------------------------------------------------------------------------------
 -- CREATE TABLE `my_movie_genres`
-CREATE TABLE `my_movie_genres` (
-`genres_id` INTEGER AUTOINCREMENT UNIQUE,
+CREATE TABLE IF NOT EXISTS `my_movie_genres` (
+`genres_id` INTEGER UNIQUE,
 `genres_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
 );
 
 -- CREATE TABLE `my_movie_media`
-CREATE TABLE `my_movie_media` (
-`media_id` INTEGER AUTOINCREMENT UNIQUE,
+CREATE TABLE IF NOT EXISTS `my_movie_media` (
+`media_id` INTEGER UNIQUE,
 `media_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
 );
 
 -- CREATE TABLE `my_movie_language`
-CREATE TABLE `my_movie_language` (
-`language_id` INTEGER AUTOINCREMENT UNIQUE,
+CREATE TABLE IF NOT EXISTS `my_movie_language` (
+`language_id` INTEGER UNIQUE,
 `language_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
 );
 
 -- CREATE TABLE `my_movie_country`
-CREATE TABLE `my_movie_country` (
-`country_id` INTEGER AUTOINCREMENT UNIQUE,
+CREATE TABLE IF NOT EXISTS `my_movie_country` (
+`country_id` INTEGER UNIQUE,
 `country_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
 );
 --------------------------------------------------------------------------------
 -- MOVIES TABLES
 --------------------------------------------------------------------------------
 -- CREATE TABLE `my_movie_list`
-CREATE TABLE `my_movies_list` (
-`movie_id` INTEGER AUTOINCREMENT UNIQUE,
-`imdb_id` VARCHAR(10) NOT NULL PRIMARY KEY UNIQUE,
+CREATE TABLE IF NOT EXISTS `my_movies_list` (
+`movie_id` VARCHAR(10) NOT NULL PRIMARY KEY UNIQUE,
 `movie_title` VARCHAR(255) NOT NULL,
 `movie_genre` VARCHAR(50) NOT NULL,
 `movie_length` INTEGER,
@@ -54,8 +53,8 @@ FOREIGN KEY(release_country) REFERENCES my_movie_country(country_name)
 );
 
 -- CREATE TABLE `my_movie_seen`
-CREATE TABLE `my_movies_seen` (
-`imdb_id` VARCHAR(10) NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS `my_movies_seen` (
+`movie_id` VARCHAR(10) NOT NULL PRIMARY KEY,
 `movie_date` CHAR(10) NOT NULL,
 `movie_location` VARCHAR(255),
 `media_type` VARCHAR(50),
@@ -68,3 +67,7 @@ FOREIGN KEY(media_type) REFERENCES my_movie_media(media_name),
 FOREIGN KEY(movie_language) REFERENCES my_movie_language(language_name)
 );
 --------------------------------------------------------------------------------
+-- SQLITE COMMANDS
+--------------------------------------------------------------------------------
+-- ACTIVATE FOREIGN KEYS
+PRAGMA foreign_keys = ON;
