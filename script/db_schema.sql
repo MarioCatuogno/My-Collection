@@ -30,11 +30,11 @@ CREATE TABLE `my_movie_country` (
 -- CREATE TABLE `my_movie_list`
 CREATE TABLE `my_movies_list` (
 `movie_id` INTEGER AUTOINCREMENT UNIQUE,
-`imdb_id`	VARCHAR(10) NOT NULL PRIMARY KEY UNIQUE,
-`movie_title`	VARCHAR(255) NOT NULL,
-`movie_genre`	VARCHAR(50) NOT NULL,
-`movie_length`	INTEGER,
-`release_country`	VARCHAR(50),
+`imdb_id` VARCHAR(10) NOT NULL PRIMARY KEY UNIQUE,
+`movie_title` VARCHAR(255) NOT NULL,
+`movie_genre` VARCHAR(50) NOT NULL,
+`movie_length` INTEGER,
+`release_country` VARCHAR(50),
 `release_year` INTEGER,
 `movie_budget` INTEGER,
 `movie_boxoffice` INTEGER,
@@ -55,9 +55,9 @@ FOREIGN KEY(release_country) REFERENCES my_movie_country(country_name)
 
 -- CREATE TABLE `my_movie_seen`
 CREATE TABLE `my_movies_seen` (
-`imdb_id`	VARCHAR(10) NOT NULL PRIMARY KEY,
+`imdb_id` VARCHAR(10) NOT NULL PRIMARY KEY,
 `movie_date` CHAR(10) NOT NULL,
-`movie_location`	VARCHAR(255),
+`movie_location` VARCHAR(255),
 `media_type` VARCHAR(50),
 `media_detail` VARCHAR(255),
 `media_technology` VARCHAR(255),
