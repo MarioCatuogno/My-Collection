@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `my_movies_list` (
 `score_plot` DOUBLE(2,1) NOT NULL,
 `score_music` DOUBLE(2,1) NOT NULL,
 `score_vfx` DOUBLE(2,1) NOT NULL,
+`score_emotion` DOUBLE(2,1) NOT NULL,
 `movie_director` VARCHAR(255),
 `movie_composer` VARCHAR(255),
 `movie_star1` VARCHAR(255),
