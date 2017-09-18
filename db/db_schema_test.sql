@@ -4,25 +4,25 @@
 -- CREATE TABLE `my_movies_genres`
 CREATE TABLE IF NOT EXISTS `my_movies_genres` (
 `genres_id` INTEGER UNIQUE,
-`genres_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
+`genres_name` VARCHAR(50) NOT NULL PRIMARY KEY
 );
 
 -- CREATE TABLE `my_movies_media`
 CREATE TABLE IF NOT EXISTS `my_movies_media` (
 `media_id` INTEGER UNIQUE,
-`media_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
+`media_name` VARCHAR(50) NOT NULL PRIMARY KEY
 );
 
 -- CREATE TABLE `my_movies_language`
 CREATE TABLE IF NOT EXISTS `my_movies_language` (
 `language_id` INTEGER UNIQUE,
-`language_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
+`language_name` VARCHAR(50) NOT NULL PRIMARY KEY
 );
 
 -- CREATE TABLE `my_movies_country`
 CREATE TABLE IF NOT EXISTS `my_movies_country` (
 `country_id` INTEGER UNIQUE,
-`country_name` VARCHAR(50) NOT NULL PRIMARY KEY UNIQUE
+`country_name` VARCHAR(50) NOT NULL PRIMARY KEY
 );
 --------------------------------------------------------------------------------
 -- MOVIES TABLES
@@ -31,7 +31,10 @@ CREATE TABLE IF NOT EXISTS `my_movies_country` (
 CREATE TABLE IF NOT EXISTS `my_movies_list` (
 `movie_id` VARCHAR(10) NOT NULL PRIMARY KEY UNIQUE,
 `movie_title` VARCHAR(255) NOT NULL,
-`movie_genre` VARCHAR(50) NOT NULL,
+-- CONSTRAINT ON `fk_my_movies_genres`
+`movie_genre` VARCHAR(50) NOT NULL
+ CONSTRAINT fk_my_movies_genres REFERENCES my_movies_genres(genres_name)
+ ON DELETE CASCADE,
 `movie_length` INTEGER,
 `release_country` VARCHAR(50),
 `release_year` INTEGER,
@@ -58,7 +61,10 @@ CREATE TABLE IF NOT EXISTS `my_movies_seen` (
 `movie_id` VARCHAR(10) NOT NULL PRIMARY KEY,
 `movie_date` CHAR(10) NOT NULL,
 `movie_location` VARCHAR(255),
-`media_type` VARCHAR(50),
+-- CONSTRAINT ON `fk_my_movies_media`
+`media_type` VARCHAR(50)
+ CONSTRAINT fk_my_movies_media REFERENCES my_movies_media(media_name)
+ ON DELETE CASCADE,
 `media_detail` VARCHAR(255),
 `media_technology` VARCHAR(255),
 `movie_language` VARCHAR(50),
@@ -68,9 +74,3 @@ FOREIGN KEY(media_type) REFERENCES my_movies_media(media_name),
 FOREIGN KEY(movie_language) REFERENCES my_movies_language(language_name)
 );
 --------------------------------------------------------------------------------
--- PRAGMA COMMANDS
---------------------------------------------------------------------------------
--- ACTIVATE FOREIGN KEYS
-PRAGMA foreign_keys = ON;
--- SET ENCODING
-PRAGMA encoding = "UTF-8";
