@@ -1,24 +1,6 @@
 --------------------------------------------------------------------------------
 -- LOOKUP TABLES
 --------------------------------------------------------------------------------
--- CREATE TABLE `lk_genres`
-CREATE TABLE IF NOT EXISTS `lk_genres` (
-`genres_id` INTEGER UNIQUE,
-`genres_name` VARCHAR(50) NOT NULL PRIMARY KEY
-);
-
--- CREATE TABLE `lk_media`
-CREATE TABLE IF NOT EXISTS `lk_media` (
-`media_id` INTEGER UNIQUE,
-`media_name` VARCHAR(50) NOT NULL PRIMARY KEY
-);
-
--- CREATE TABLE `lk_language`
-CREATE TABLE IF NOT EXISTS `lk_language` (
-`language_id` INTEGER UNIQUE,
-`language_name` VARCHAR(50) NOT NULL PRIMARY KEY
-);
-
 -- CREATE TABLE `lk_country`
 CREATE TABLE IF NOT EXISTS `lk_country` (
 `country_id` INTEGER UNIQUE,
@@ -29,6 +11,24 @@ CREATE TABLE IF NOT EXISTS `lk_country` (
 CREATE TABLE IF NOT EXISTS `lk_flag` (
 `flag_id` INTEGER UNIQUE,
 `flag_name` VARCHAR(1) NOT NULL PRIMARY KEY
+);
+
+-- CREATE TABLE `lk_genres`
+CREATE TABLE IF NOT EXISTS `lk_genres` (
+`genres_id` INTEGER UNIQUE,
+`genres_name` VARCHAR(50) NOT NULL PRIMARY KEY
+);
+
+-- CREATE TABLE `lk_language`
+CREATE TABLE IF NOT EXISTS `lk_language` (
+`language_id` INTEGER UNIQUE,
+`language_name` VARCHAR(50) NOT NULL PRIMARY KEY
+);
+
+-- CREATE TABLE `lk_media`
+CREATE TABLE IF NOT EXISTS `lk_media` (
+`media_id` INTEGER UNIQUE,
+`media_name` VARCHAR(50) NOT NULL PRIMARY KEY
 );
 --------------------------------------------------------------------------------
 -- MOVIES TABLES
