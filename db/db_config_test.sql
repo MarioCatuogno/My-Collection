@@ -18,6 +18,16 @@ WHERE  NEW.movie_genre IS NOT NULL AND
   WHERE genres_name = NEW.movie_genre) IS NULL;
 END;
 
+-- CREATE TRIGGER `fk_my_movies_country`
+CREATE TRIGGER fk_my_movies_country
+BEFORE INSERT ON my_movies_list
+FOR EACH ROW BEGIN
+SELECT RAISE(ROLLBACK, 'Violated FK on release_country')
+WHERE  NEW.release_country IS NOT NULL AND
+ (SELECT country_name FROM my_movies_country
+  WHERE country_name = NEW.release_country) IS NULL;
+END;
+
 -- CREATE TRIGGER `fk_my_movies_media`
 CREATE TRIGGER fk_my_movies_media
 BEFORE INSERT ON my_movies_seen
@@ -34,7 +44,9 @@ BEFORE INSERT ON my_movies_seen
 FOR EACH ROW BEGIN
 SELECT RAISE(ROLLBACK, 'Violated FK on movie_language')
 WHERE  NEW.movie_language IS NOT NULL AND
- (SELECT language_name FROM my_movies_media
+ (SELECT language_name FROM my_movies_language
   WHERE language_name = NEW.movie_language) IS NULL;
 END;
+
+
 --------------------------------------------------------------------------------
