@@ -67,7 +67,9 @@ CREATE TABLE IF NOT EXISTS `my_movies_seen` (
  ON DELETE CASCADE,
 `media_detail` VARCHAR(255),
 `media_technology` VARCHAR(255),
-`movie_language` VARCHAR(50),
+`movie_language` VARCHAR(50)
+ CONSTRAINT fk_my_movies_language REFERENCES my_movies_language(language_name)
+ ON DELETE CASCADE,
 `movie_premiere` CHAR(1),
 `ticket_price` DOUBLE(2,1),
 FOREIGN KEY(media_type) REFERENCES my_movies_media(media_name),
