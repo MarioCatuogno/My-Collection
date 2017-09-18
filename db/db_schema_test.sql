@@ -36,7 +36,10 @@ CREATE TABLE IF NOT EXISTS `my_movies_list` (
  CONSTRAINT fk_my_movies_genres REFERENCES my_movies_genres(genres_name)
  ON DELETE CASCADE,
 `movie_length` INTEGER,
-`release_country` VARCHAR(50),
+-- CONSTRAINT ON `fk_my_movies_country`
+`release_country` VARCHAR(50)
+ CONSTRAINT fk_my_movies_country REFERENCES my_movies_country(country_name)
+ ON DELETE CASCADE,
 `release_year` INTEGER,
 `movie_budget` INTEGER,
 `movie_boxoffice` INTEGER,
@@ -67,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `my_movies_seen` (
  ON DELETE CASCADE,
 `media_detail` VARCHAR(255),
 `media_technology` VARCHAR(255),
+-- CONSTRAINT ON `fk_my_movies_language`
 `movie_language` VARCHAR(50)
  CONSTRAINT fk_my_movies_language REFERENCES my_movies_language(language_name)
  ON DELETE CASCADE,
