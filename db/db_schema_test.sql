@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- LOOKUP TABLES
+-- CREATE LOOKUP TABLES
 --------------------------------------------------------------------------------
 -- CREATE TABLE `lk_country`
 CREATE TABLE IF NOT EXISTS `lk_country` (
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `lk_media` (
 `media_name` VARCHAR(50) NOT NULL PRIMARY KEY
 );
 --------------------------------------------------------------------------------
--- MOVIES TABLES
+-- CREATE MOVIES TABLES
 --------------------------------------------------------------------------------
 -- CREATE TABLE `my_movies_list`
 CREATE TABLE IF NOT EXISTS `my_movies_list` (
