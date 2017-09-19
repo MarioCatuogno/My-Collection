@@ -5,5 +5,5 @@
 * [Template](#template)
 
 #### Template
-* [Insert into my_movies_list](https://github.com/MarioCatuogno/My-Collection/tree/master/templates/db_insert_list.sql)
-* [Insert into my_movies_seen](https://github.com/MarioCatuogno/My-Collection/tree/master/templates/db_insert_seen.sql)
+* [Insert into Movies - List](https://github.com/MarioCatuogno/My-Collection/tree/master/templates/db_insert_list.sql)
+* [Insert into Movies - Seen](https://github.com/MarioCatuogno/My-Collection/tree/master/templates/db_insert_seen.sql)
