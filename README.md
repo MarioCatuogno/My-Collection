@@ -1,7 +1,7 @@
 # My-Collection
 🗃 Db for movies, books and other stuff
 
-### Index
+#### Index
 * [Template](#template)
 
 #### Template
