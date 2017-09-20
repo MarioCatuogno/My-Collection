@@ -3,6 +3,7 @@
 #Creating variables
 DBPATH=/Users/mariocatuogno/Dropbox/Github/My-Collection/db/
 DBNAME=my_collection.db
+SCRPATH=/Users/mariocatuogno/Dropbox/Github/My-Collection/script/
 
 #Test if database exists, otherwise create the database
 cd $DBPATH
