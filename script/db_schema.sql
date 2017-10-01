@@ -1,6 +1,12 @@
 --------------------------------------------------------------------------------
 -- CREATE LOOKUP TABLES
 --------------------------------------------------------------------------------
+-- CREATE TABLE `lk_company`
+CREATE TABLE IF NOT EXISTS `lk_company` (
+`company_id` INTEGER UNIQUE,
+`company_name` VARCHAR(50) NOT NULL PRIMARY KEY
+);
+
 -- CREATE TABLE `lk_country`
 CREATE TABLE IF NOT EXISTS `lk_country` (
 `country_id` INTEGER UNIQUE,
@@ -71,6 +77,10 @@ CREATE TABLE IF NOT EXISTS `my_movies_seen` (
 `movie_title_seen` VARCHAR(255),
 `movie_date` CHAR(10) NOT NULL,
 `movie_location` VARCHAR(255),
+-- CONSTRAINT ON `fk_lk_company`
+`movie_company` VARCHAR(50)
+ CONSTRAINT fk_lk_company REFERENCES lk_company(company_name)
+ ON DELETE CASCADE,
 -- CONSTRAINT ON `fk_lk_media`
 `media_type` VARCHAR(50)
  CONSTRAINT fk_lk_media REFERENCES lk_media(media_name)
