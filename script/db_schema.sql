@@ -68,6 +68,7 @@ FOREIGN KEY(release_country) REFERENCES lk_country(country_name)
 -- CREATE TABLE `my_movies_seen`
 CREATE TABLE IF NOT EXISTS `my_movies_seen` (
 `movie_id` VARCHAR(10) NOT NULL PRIMARY KEY,
+`movie_title_seen` VARCHAR(255),
 `movie_date` CHAR(10) NOT NULL,
 `movie_location` VARCHAR(255),
 -- CONSTRAINT ON `fk_lk_media`
