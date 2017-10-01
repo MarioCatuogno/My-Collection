@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS `my_movies_seen` (
  CONSTRAINT fk_lk_flag REFERENCES lk_flag(flag_name)
  ON DELETE CASCADE,
 `ticket_price` DOUBLE(2,1),
+FOREIGN KEY(movie_company) REFERENCES lk_company(company_name),
 FOREIGN KEY(media_type) REFERENCES lk_media(media_name),
 FOREIGN KEY(movie_language) REFERENCES lk_language(language_name),
 FOREIGN KEY(movie_premiere) REFERENCES lk_flag(flag_name)
