@@ -1,17 +1,25 @@
 #!/bin/bash
 
 #Creating variables
+GITPATH=$HOME/Dropbox/Github/My-Collection/
 DBPATH=$HOME/Dropbox/Github/My-Collection/db/
 DBNAME=my_collection.db
 SCRPATH=$HOME/Dropbox/Github/My-Collection/script/
 
 #Test if database exists, otherwise create the database
-cd $DBPATH
+cd $SCRPATH
 if [ -f $DBNAME ]; then
  echo "The database '$DBNAME' exists."
  ls -ltr $DBNAME
 else
- echo "Creating database into: '$DBPATH'."
- sqlite3> $DBNAME .databases .exit
- chmod ug+rwx $DBNAME
+ echo "Creating database into: '$SCRPATH'..."
+ sqlite3 $DBNAME .databases .exit
+ chmod 777 $DBNAME
+ echo "Creating tables into '$DBNAME'..."
+ sqlite3 $DBNAME ".read db_schema.sql"
+ echo "Creating triggers into '$DBNAME'..."
+ sqlite3 $DBNAME ".read db_trigger.sql"
+ echo "Populating lookup tables into '$DBNAME'..."
+ sqlite3 $DBNAME ".read db_lookup.sql"
 fi
+
