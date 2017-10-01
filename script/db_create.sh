@@ -15,7 +15,7 @@ else
  echo "Creating database into: '$SCRPATH'..."
  sqlite3 $DBNAME .databases .exit
  chmod 777 $DBNAME
- echo "Creating tables into '$DBNAME'..."
+ echo "Creating schema into '$DBNAME'..."
  sqlite3 $DBNAME ".read db_schema.sql"
  echo "Creating triggers into '$DBNAME'..."
  sqlite3 $DBNAME ".read db_trigger.sql"
