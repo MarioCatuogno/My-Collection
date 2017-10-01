@@ -1,6 +1,8 @@
 INSERT INTO my_movies_list VALUES (
 --movie_id
 UPPER('')
+--movie_title_seen
+,UPPER('')
 --movie_date
 ,UPPER('')
 --movie_location
