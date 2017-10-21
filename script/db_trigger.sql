@@ -8,6 +8,16 @@ PRAGMA encoding = "UTF-8";
 --------------------------------------------------------------------------------
 -- TRIGGERS
 --------------------------------------------------------------------------------
+-- CREATE TRIGGER `fk_lk_company`
+CREATE TRIGGER fk_lk_company
+BEFORE INSERT ON my_movies_seen
+FOR EACH ROW BEGIN
+SELECT RAISE(ROLLBACK, 'Violated FK on movie_company')
+WHERE  NEW.movie_company IS NOT NULL AND
+ (SELECT company_name FROM lk_company
+  WHERE company_name = NEW.movie_company) IS NULL;
+END;
+
 -- CREATE TRIGGER `fk_lk_country`
 CREATE TRIGGER fk_lk_country
 BEFORE INSERT ON my_movies_list
