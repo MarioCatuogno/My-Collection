@@ -14,19 +14,19 @@ YLW="`tput setaf 3`"
 NC="`tput sgr0`"
 
 #Test if database exists, otherwise create the database
-cd $SCRPATH
+cd $DBPATH
 if [ -f $DBNAME ]; then
- echo "The database '$DBNAME' exists."
+ echo "The database '${RED}$DBNAME${NC}' exists."
   ls -ltr $DBNAME
 else
- echo "Creating database into: '$SCRPATH'..."
+ echo "Creating database into: '$DBPATH'..."
   sqlite3 $DBNAME .databases .exit
   chmod 777 $DBNAME
- echo "Creating schema into '$DBNAME'..."
-  sqlite3 $DBNAME ".read db_schema.sql"
- echo "Creating triggers into '$DBNAME'..."
-  sqlite3 $DBNAME ".read db_trigger.sql"
- echo "Populating lookup tables into '$DBNAME'..."
-  sqlite3 $DBNAME ".read db_lookup.sql"
+ echo "Creating schema into '${RED}$DBNAME${NC}'..."
+  sqlite3 $DBNAME ".read ${QRYPATH}db_schema.sql"
+ echo "Creating triggers into '${RED}$DBNAME${NC}'..."
+  sqlite3 $DBNAME ".read ${QRYPATH}db_trigger.sql"
+ echo "Populating lookup tables into '${RED}$DBNAME${NC}'..."
+  sqlite3 $DBNAME ".read ${QRYPATH}db_lookup.sql"
 fi
 
