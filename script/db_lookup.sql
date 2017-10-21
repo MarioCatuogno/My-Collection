@@ -46,4 +46,9 @@ INSERT INTO lk_country VALUES (06,UPPER('USA'));
 -- INSERT INTO TABLE `lk_flag`
 INSERT INTO lk_flag VALUES (01,UPPER('N'));
 INSERT INTO lk_flag VALUES (02,UPPER('Y'));
+
+-- INSERT INTO TABLE `lk_company`
+INSERT INTO lk_company VALUES (01,UPPER('GIRLFRIEND'));
+INSERT INTO lk_company VALUES (02,UPPER('FAMILY'));
+INSERT INTO lk_company VALUES (03,UPPER('FRIENDS'));
 --------------------------------------------------------------------------------
